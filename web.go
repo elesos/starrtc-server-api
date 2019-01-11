@@ -31,7 +31,7 @@ func main() {
     }
    
     resp, err := http.Post("https://api.starRTC.com/aec/authKey", "application/x-www-form-urlencoded", 
-                           strings.NewReader("appid=123&secret=456&userid=gogogo"))
+                           strings.NewReader("appid=your appid&secret=your secret&userid=userid"))
     if err != nil {
       c.JSON(200, gin.H{
           "status":0,
@@ -67,7 +67,7 @@ func main() {
       return
     }    
     fmt.Println("sign=", sign)
-    signature := generateSign([]byte(data),  []byte("123123"))
+    signature := generateSign([]byte(data),  []byte("your guardToken"))
     fmt.Println("signature=", signature)
     if sign != signature {
       c.JSON(200, gin.H{
