@@ -27,8 +27,8 @@ guardToken='your guardToken'
 
 @app.route('/eventCenter', methods=['GET', 'POST'])
 def eventCenter():
-    data=request.args.get('data','')
-    sign=request.args.get('sign','')
+    data=request.values.get('data','')
+    sign=request.values.get('sign','')
     if data.strip()=="" or sign.strip()=="":
         return echo_0('invalid args')
     #logger.debug(data)

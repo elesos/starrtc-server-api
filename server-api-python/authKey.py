@@ -15,7 +15,7 @@ appid  = 'your appid'
 secret = 'your secret'
 @app.route('/authKey', methods=['GET', 'POST'])
 def get_authKey():
-    userid=request.args.get('userid','')
+    userid=request.values.get('userid','')
     payload={'appid':appid, 'secret':secret, 'userid':userid} 
     r=requests.post('https://api.starRTC.com/aec/authKey', params=payload)
     return r.text
